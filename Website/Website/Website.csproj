@@ -131,6 +131,7 @@
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\img\perfil.jpg" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -179,6 +180,20 @@
     <None Include="packages.config" />
     <Content Include="Scripts\jquery-3.4.1.slim.min.map" />
     <Content Include="Scripts\jquery-3.4.1.min.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\ConsoleApp\ConsoleApp\ConsoleApp.csproj">
+      <Project>{bb97307f-e9cf-4dd5-aac6-57fea015e673}</Project>
+      <Name>ConsoleApp</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Domain\Domain.csproj">
+      <Project>{2cf976b2-4ee7-4cf4-8dd8-44bacd4c2cac}</Project>
+      <Name>Domain</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Services\Services.csproj">
+      <Project>{b0885e92-99b1-4969-ae65-525c38ace551}</Project>
+      <Name>Services</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
