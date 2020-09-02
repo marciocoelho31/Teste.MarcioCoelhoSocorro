@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Text;
 
 namespace Services
 {
@@ -135,6 +136,68 @@ namespace Services
             // Espera o usuário digitar algo para fechar a aplicação
             Console.Write("\n\nPressione qualquer tecla para fechar a aplicação...");
             Console.ReadKey();
+        }
+
+        public void NumerosTriangulo()
+        {
+            // Declara a variavel string de palavra
+            // e pede ao usuario que digite a palavra
+            Console.WriteLine("Digite uma palavra e pressione Enter");
+            string palavra = Convert.ToString(Console.ReadLine());
+
+            int retorno = palavraTriangulo(palavra);
+
+            // Mostra a posição da sequência dado uma palavra como resultado, ou -1 se a palavra não for uma "palavra triângulo"
+            Console.Write("\n\nRetorno: " + retorno);
+
+            // Espera o usuário digitar algo para fechar a aplicação
+            Console.Write("\n\nPressione qualquer tecla para fechar a aplicação...");
+            Console.ReadKey();
+        }
+
+        private static int valorDaPalavra(string palavra)
+        {
+            int ret = 0;
+            if (palavra.Length > 0)
+            {
+                byte[] arrayASCII = Encoding.ASCII.GetBytes(palavra.ToUpper());
+
+                foreach (object letra in arrayASCII)
+                {
+                    ret += (Convert.ToInt32(letra.ToString()) - 64);
+                }
+
+            }
+            return ret;
+        }
+
+        public int palavraTriangulo(string palavra)
+        {
+            // Converte cada letra da palavra em um número correspondendo a posição no alfabeto
+            // e adiciona os valores, obtendo o resultado - "o valor da palavra"
+            int resultadoValorPalavra = valorDaPalavra(palavra);
+
+            // Verifica se a palavra é uma "palavra triângulo", 
+            // obedecendo a fórmula 𝑡(𝑛) = 𝑛 ∗ (𝑛 +1) / 2
+            // Assim os primeiros números da sequência são: 1, 3, 6, 10, 15, 21, 28, 36, 45, 55, ...
+            int ret = -1;
+            double n = 1;
+            while (true)
+            {
+                double num = (n * (n + 1)) / 2;
+                if (num == Convert.ToDouble(resultadoValorPalavra))
+                {
+                    ret = Convert.ToInt32(n);
+                    break;
+                }
+                else if (num > resultadoValorPalavra)
+                {
+                    break;
+                }
+                n++;
+            }
+
+            return ret;
         }
 
     }

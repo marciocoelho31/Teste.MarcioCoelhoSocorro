@@ -15,16 +15,23 @@ namespace Website.Controllers
 
         public ActionResult Sobre()
         {
-            ViewBag.Message = "Página de Sobre.";
-
             return View();
         }
 
         public ActionResult Resultado()
         {
-            ViewBag.Message = "Página de Resultado.";
-
+            ViewBag.Message = "";
             return View();
         }
+
+        public ActionResult VerificarPalavraTriangulo(string palavra)
+        {
+            Services.Funcoes funcoes = new Services.Funcoes();
+
+            ViewBag.Message = "Palavra " + palavra + " => o resultado é " + funcoes.palavraTriangulo(palavra) + ".";
+
+            return View("Resultado");
+        }
+
     }
 }
