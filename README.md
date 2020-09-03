@@ -8,13 +8,13 @@
 
 Os itens da avaliação serão executados um após o outro e o usuário será informado através de mensagens no console.
 
-  1. Escreva uma função que imprima os números de 1 a 100 e, ao lado dos números múltiplos de 3 imprima “<Nome>”, ao lado dos múltiplos de 5 imprima “<SobreNome>” e ao lado dos múltiplos de 3 e 5 imprima “<Nome><SobreNome>”.
+  1. Função que imprima os números de 1 a 100 e, ao lado dos números múltiplos de 3 imprima "Nome", ao lado dos múltiplos de 5 imprima "SobreNome" e ao lado dos múltiplos de 3 e 5 imprima "Nome SobreNome", sendo Nome e Sobrenome variáveis de fácil manipulação (nesse caso, o usuário será solicitado a digitar na tela)
   
-  2. Implemente a função somaDeQuadrados que retorna a soma de quadrados de uma lista.
+  2. Função somaDeQuadrados que retorna a soma de quadrados de uma lista. O usuário precisa digitar números e confirmá-los com Enter, e digitar "=" mais Enter para concluir.
   
   3. Sequência de Fibonacci - Escreva uma função que retorna o primeiro elemento da sequência de Fibonacci com 5 dígitos.
   
-  4. Escrever uma função que recebe uma árvore e um id e retorna um vetor com os ids do caminho desde o nó raiz até o nó passado como parâmetro.
+  4. Função que recebe uma árvore e um id e retorna um vetor com os ids do caminho desde o nó raiz até o nó passado como parâmetro.
   
   5. Utilizando a função:
     function acumular(combiner, nullValue, list)
@@ -28,5 +28,5 @@ Os itens da avaliação serão executados um após o outro e o usuário será in
     }
     Neste caso a função acumular deve ser utilizada. A variável “combiner” é um “ponteiro para função”. A implementação da função “combiner” faz parte da solução.
     
-  6. Escreva uma função que retorna à posição da sequência dado uma palavra ou -1 se a palavra não for uma palavra triângulo.
+  6. Função que retorna à posição da sequência dado uma palavra ou -1 se a palavra não for uma palavra triângulo. O usuário será solicitado a digitar uma palavra e confirmar com Enter.
   
