@@ -12,7 +12,7 @@ Os itens da avaliação serão executados um após o outro e o usuário será in
   
   2. Função somaDeQuadrados que retorna a soma de quadrados de uma lista. O usuário precisa digitar números e confirmá-los com Enter, e digitar "=" mais Enter para concluir.
   
-  3. Sequência de Fibonacci - Escreva uma função que retorna o primeiro elemento da sequência de Fibonacci com 5 dígitos.
+  3. Sequência de Fibonacci - Função que retorna o primeiro elemento da sequência de Fibonacci com 5 dígitos.
   
   4. Função que recebe uma árvore e um id e retorna um vetor com os ids do caminho desde o nó raiz até o nó passado como parâmetro.
   
