@@ -47,14 +47,11 @@ namespace Services
 
             }
 
-            // Espera o usuário digitar algo para fechar a aplicação
-            Console.Write("\n\nPressione qualquer tecla para fechar a aplicação...");
+            // Espera o usuário digitar algo para continuar
+            Console.Write("\n\nPressione qualquer tecla para continuar...\n\n");
             Console.ReadKey();
 
         }
-
-
-
 
         #region métodos relacionados ao item 2 da avaliação
         public void RealizaSomaDeQuadrados()
@@ -91,8 +88,8 @@ namespace Services
             // Mostra o resultado na tela
             Console.Write("\n\nResultado da soma dos quadrados: " + resultado.ToString() + "\n\n");
 
-            // Espera o usuário digitar algo para fechar a aplicação
-            Console.Write("\n\nPressione qualquer tecla para fechar a aplicação...");
+            // Espera o usuário digitar algo para continuar
+            Console.Write("\n\nPressione qualquer tecla para continuar...\n\n");
             Console.ReadKey();
 
         }
@@ -113,9 +110,6 @@ namespace Services
             return soma;
         }
         #endregion
-
-
-
 
         // método relacionado ao item 3 da avaliação
         public void PrimeiroElemento5DigFibonacci()
@@ -145,13 +139,10 @@ namespace Services
                 }
             }
 
-            // Espera o usuário digitar algo para fechar a aplicação
-            Console.Write("\n\nPressione qualquer tecla para fechar a aplicação...");
+            // Espera o usuário digitar algo para continuar
+            Console.Write("\n\nPressione qualquer tecla para continuar...\n\n");
             Console.ReadKey();
         }
-
-
-
 
         #region métodos relacionados ao item 4 da avaliação
         public void Arvore()
@@ -161,8 +152,8 @@ namespace Services
             // Mostra a posição da sequência dado uma palavra como resultado, ou -1 se a palavra não for uma "palavra triângulo"
             Console.Write("\n\nRetorno: " + retorno);
 
-            // Espera o usuário digitar algo para fechar a aplicação
-            Console.Write("\n\nPressione qualquer tecla para fechar a aplicação...");
+            // Espera o usuário digitar algo para continuar
+            Console.Write("\n\nPressione qualquer tecla para continuar...\n\n");
             Console.ReadKey();
 
         }
@@ -172,6 +163,7 @@ namespace Services
             int node = 0, ct = 0;
             int[] intArr = new int[0];
 
+            // monta a árvore a partir do elemento a, e busca por n como último nó passado
             Arvore arvore = new Arvore();
             while (node != a.Id)
             {
@@ -183,6 +175,7 @@ namespace Services
                 node = arvore.Id;
             }
 
+            // formata a árvore para visualização
             Array.Resize(ref intArr, intArr.Length + 1);
             intArr[ct] = a.Id;
 
@@ -240,8 +233,6 @@ namespace Services
         }
         #endregion
 
-
-
         #region métodos relacionados ao item 5 da avaliação
 
         public int acumular(Func<int, int, int> combiner, int nullValue, List<int> list)
@@ -274,22 +265,25 @@ namespace Services
 
             Console.WriteLine("Resultado questão combiner para lista { 1, 2, 3, 4, 5 }:\n" + resultado.ToString());
 
-            // Espera o usuário digitar algo para fechar a aplicação
-            Console.Write("\n\nPressione qualquer tecla para fechar a aplicação...");
+            // Espera o usuário digitar algo para continuar
+            Console.Write("\n\nPressione qualquer tecla para continuar...\n\n");
             Console.ReadKey();
         }
 
         #endregion
 
-
-
         #region métodos relacionados ao item 6 da avaliação
         public void NumerosTriangulo()
         {
+            string palavra = "";
+
             // Declara a variavel string de palavra
             // e pede ao usuario que digite a palavra
-            Console.WriteLine("Digite uma palavra e pressione Enter");
-            string palavra = Convert.ToString(Console.ReadLine());
+            while (palavra == "")
+            {
+                Console.WriteLine("Digite uma palavra e pressione Enter");
+                palavra = Convert.ToString(Console.ReadLine());
+            }
 
             int retorno = palavraTriangulo(palavra);
 
