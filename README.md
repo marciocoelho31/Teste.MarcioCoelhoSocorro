@@ -1,10 +1,6 @@
 # Teste.MarcioCoelhoSocorro
 
-- Solução composta dos seguintes projetos:
-  . ConsoleApp
-  . Domain
-  . Services
-  . Website
+- Solução composta dos seguintes projetos: ConsoleApp, Domain, Services e Website
 
 - O projeto Website é o projeto de inicialização. Ao executar a solução no Visual Studio 2019, e iniciar a depuração, o projeto Website será inicializado.
 
