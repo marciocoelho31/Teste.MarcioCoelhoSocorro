@@ -1,11 +1,14 @@
-﻿using System;
+﻿using Domain;
+using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 
 namespace Services
 {
     public class Funcoes
     {
+        // método relacionado ao item 1 da avaliação
         public void ImprimeNumerosDe1a100()
         {
             // Declara as variaveis string de nome e sobrenome
@@ -50,6 +53,10 @@ namespace Services
 
         }
 
+
+
+
+        #region métodos relacionados ao item 2 da avaliação
         public void RealizaSomaDeQuadrados()
         {
             // Cria a lista que vai guardar os números informados
@@ -105,7 +112,12 @@ namespace Services
             }
             return soma;
         }
+        #endregion
 
+
+
+
+        // método relacionado ao item 3 da avaliação
         public void PrimeiroElemento5DigFibonacci()
         {
             // Inicializa variáveis
@@ -138,6 +150,140 @@ namespace Services
             Console.ReadKey();
         }
 
+
+
+
+        #region métodos relacionados ao item 4 da avaliação
+        public void Arvore()
+        {
+            string retorno = "[" + string.Join(",", caminho_arvore(geraTree(), 9)) + "]";
+
+            // Mostra a posição da sequência dado uma palavra como resultado, ou -1 se a palavra não for uma "palavra triângulo"
+            Console.Write("\n\nRetorno: " + retorno);
+
+            // Espera o usuário digitar algo para fechar a aplicação
+            Console.Write("\n\nPressione qualquer tecla para fechar a aplicação...");
+            Console.ReadKey();
+
+        }
+
+        public int[] caminho_arvore(Arvore a, int n)
+        {
+            int node = 0, ct = 0;
+            int[] intArr = new int[0];
+
+            Arvore arvore = new Arvore();
+            while (node != a.Id)
+            {
+                Array.Resize(ref intArr, intArr.Length + 1);
+                intArr[ct] = n;
+                ct++;
+                verificaGalhos(ref arvore, a, n);
+                n = arvore.Id;
+                node = arvore.Id;
+            }
+
+            Array.Resize(ref intArr, intArr.Length + 1);
+            intArr[ct] = a.Id;
+
+            Array.Reverse(intArr);
+
+            return intArr;
+        }
+
+        public static void verificaGalhos(ref Arvore node, Arvore a, int n)
+        {
+            if (a.Filhos != null)
+            {
+                if ((a.Filhos[0] != null && a.Filhos[0].Id == n) || (a.Filhos[1] != null && a.Filhos[1].Id == n))
+                {
+                    node = a;
+                }
+                else
+                {
+                    if (a.Filhos[0] != null)
+                    {
+                        verificaGalhos(ref node, a.Filhos[0], n);
+                    }
+                    if (a.Filhos[1] != null)
+                    {
+                        verificaGalhos(ref node, a.Filhos[1], n);
+                    }
+                }
+            }
+        }
+
+        public Arvore geraTree()
+        {
+            var no9 = new Arvore { Id = 9 };
+            var no13 = new Arvore { Id = 13, Filhos = tree(no9, null) };
+            var no12 = new Arvore { Id = 12, Filhos = tree(null, no13) };
+            var no2 = new Arvore { Id = 2, Filhos = tree(no12, null) };
+            var no8 = new Arvore { Id = 8 };
+            var no10 = new Arvore { Id = 10, Filhos = tree(no8, null) };
+            var no4 = new Arvore { Id = 4, Filhos = tree(no10, no2) };
+            var no5 = new Arvore { Id = 5 };
+            var no3 = new Arvore { Id = 3 };
+            var no6 = new Arvore { Id = 6 };
+            var no11 = new Arvore { Id = 11, Filhos = tree(no6, no5) };
+            var no7 = new Arvore { Id = 7, Filhos = tree(no3, no11) };
+            var no1 = new Arvore { Id = 1, Filhos = tree(no4, no7) };
+            return no1;
+        }
+
+        static Arvore[] tree(Arvore noEsquerda, Arvore noDireita)
+        {
+            Arvore[] tree = new Arvore[2];
+            tree[0] = noEsquerda;
+            tree[1] = noDireita;
+            return tree;
+        }
+        #endregion
+
+
+
+        #region métodos relacionados ao item 5 da avaliação
+
+        public int acumular(Func<int, int, int> combiner, int nullValue, List<int> list)
+        // utilizando o delegate Func para facilitar a manipulação das informações
+        {
+            if (list.Count == 0)
+            {
+                return nullValue;
+            }
+
+            // removendo o primeiro elemento
+            var primeiro = list.First();
+            list.RemoveAt(0);
+
+            // alimenta o ponteiro combiner e vai assim até o final da lista fornecida em "List<int> list"
+            return combiner(primeiro, acumular(combiner, nullValue, list));
+        }
+
+        // implementando a função combiner
+        private int combiner(int primeiro, int acumula)
+        {
+            acumula += primeiro * primeiro;
+            return acumula;
+        }
+
+        public void QuestaoCombiner()
+        {
+            var list = new List<int> { 1, 2, 3, 4, 5 };
+            int resultado = acumular(combiner, 0, list);
+
+            Console.WriteLine("Resultado questão combiner para lista { 1, 2, 3, 4, 5 }:\n" + resultado.ToString());
+
+            // Espera o usuário digitar algo para fechar a aplicação
+            Console.Write("\n\nPressione qualquer tecla para fechar a aplicação...");
+            Console.ReadKey();
+        }
+
+        #endregion
+
+
+
+        #region métodos relacionados ao item 6 da avaliação
         public void NumerosTriangulo()
         {
             // Declara a variavel string de palavra
@@ -199,6 +345,8 @@ namespace Services
 
             return ret;
         }
+        #endregion
+
 
     }
 
